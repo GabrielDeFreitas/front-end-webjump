@@ -1,3 +1,5 @@
+import Footer from 'components/Footer'
+import Header from 'components/Header'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 
@@ -17,8 +19,10 @@ function App({ Component, pageProps }: AppProps) {
           content="Desafio Front-end da WebJump utilizando Typescript, React, NextJS e Styled Components."
         />
       </Head>
+      <Header />
       <GlobalStyles />
       <Component {...pageProps} />
+      <Footer />
     </>
   )
 }
