@@ -5,7 +5,7 @@ import Main from '.'
 describe('<Main />', () => {
   it('should render the description', () => {
     const description =
-      'A simple project starter to work with TypeScript, React, NextJS and Styled Components'
+      'Desafio Front-end da WebJump utilizando Typescript, React, NextJS e Styled Components.'
     render(<Main description={description} />)
 
     expect(screen.getByText(description)).toBeInTheDocument()

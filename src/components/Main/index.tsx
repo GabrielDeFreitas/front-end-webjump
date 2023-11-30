@@ -1,7 +1,7 @@
 import * as S from './styles'
 
 const Main = ({
-  description = 'A simple project starter to work with TypeScript, React, NextJS and Styled Components'
+  description = 'Desafio Front-end da WebJump utilizando Typescript, React, NextJS e Styled Components.'
 }) => (
   <S.Wrapper>
     <S.Illustration
