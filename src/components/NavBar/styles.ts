@@ -5,7 +5,7 @@ export const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   background-color: #cb0d1f;
-  padding: 1.75rem;
+  padding: 1rem;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -14,6 +14,8 @@ export const Navbar = styled.nav`
 `
 
 export const NavLinks = styled.div`
+  margin-block: 1rem;
+
   ul {
     list-style: none;
     margin: 0;
@@ -23,6 +25,22 @@ export const NavLinks = styled.div`
 
   li {
     margin-left: 20px;
+  }
+
+  a {
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #ffffff;
+    opacity: 1;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  a:hover {
+    color: #adb5bd;
+    transition: color 0.3s ease;
+    text-decoration: underline;
   }
 
   @media screen and (max-width: 768px) {
