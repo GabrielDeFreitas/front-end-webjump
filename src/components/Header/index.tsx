@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import * as S from './styles'
+import NavBar from 'components/NavBar'
 
 const Header = () => (
   <S.Header>
@@ -8,6 +9,7 @@ const Header = () => (
       <S.Span>ou</S.Span>
       <Link href="/">Cadastre-se</Link>
     </S.AccountLinks>
+    <NavBar />
   </S.Header>
 )
 
