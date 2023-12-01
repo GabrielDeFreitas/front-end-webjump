@@ -22,13 +22,13 @@ const NavBar = () => {
             <Link href="/">PÁGINA INICIAL</Link>
           </li>
           <li>
-            <Link href="/">CAMISETAS</Link>
+            <Link href="/produto/camisetas">CAMISETAS</Link>
           </li>
           <li>
-            <Link href="/">CALÇAS</Link>
+            <Link href="/produto/calcas">CALÇAS</Link>
           </li>
           <li>
-            <Link href="/">SAPATOS</Link>
+            <Link href="/produto/sapatos">SAPATOS</Link>
           </li>
           <li>
             <Link href="/">CONTATO</Link>

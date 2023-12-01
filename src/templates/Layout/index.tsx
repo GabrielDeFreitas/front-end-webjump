@@ -17,13 +17,13 @@ const LayoutTemplate: React.FC<LayoutTemplateProps> = ({ title, body }) => {
               <Link href="/">Página Inicial</Link>
             </li>
             <li>
-              <Link href="/">Camisetas</Link>
+              <Link href="/produto/camisetas">Camisetas</Link>
             </li>
             <li>
-              <Link href="/">Calças</Link>
+              <Link href="/produto/calcas">Calças</Link>
             </li>
             <li>
-              <Link href="/">Sapatos</Link>
+              <Link href="/produto/sapatos">Sapatos</Link>
             </li>
             <li>
               <Link href="/contato">Contato</Link>
