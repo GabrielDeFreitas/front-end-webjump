@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import * as S from './styles'
+import Image from 'next/image'
 
 interface ShopTemplateProps {
   categoryName: string
@@ -62,14 +63,37 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
             <S.Title>{categoryName}</S.Title>
             <S.Hr />
             <S.GridContainer>
-              <S.GridItem>2</S.GridItem>
-              <S.GridItem>2</S.GridItem>
-              <S.GridItem>2</S.GridItem>
-              <S.GridItem>2</S.GridItem>
-              <S.GridItem>2</S.GridItem>
-              <S.GridItem>2</S.GridItem>
-              <S.GridItem>2</S.GridItem>
-              <S.GridItem>2</S.GridItem>
+              <S.GridItem>
+                <S.Card>
+                  <S.ImageContainer>
+                    <Image
+                      src="/media/shoes-8.jpg"
+                      width={300}
+                      height={300}
+                      alt="calças"
+                    />
+                  </S.ImageContainer>
+                  <S.CardTitle>TÊNIS ADIDAS</S.CardTitle>
+                  <S.Price>R$299,90</S.Price>
+                  <S.ButtonBuy>Comprar</S.ButtonBuy>
+                </S.Card>
+              </S.GridItem>
+
+              <S.GridItem>
+                <S.Card>
+                  <S.ImageContainer>
+                    <Image
+                      src="/media/shoes-8.jpg"
+                      width={300}
+                      height={300}
+                      alt="calças"
+                    />
+                  </S.ImageContainer>
+                  <S.CardTitle>TÊNIS ADIDAS</S.CardTitle>
+                  <S.Price>R$299,90</S.Price>
+                  <S.ButtonBuy>Comprar</S.ButtonBuy>
+                </S.Card>
+              </S.GridItem>
             </S.GridContainer>
           </S.Article>
         </S.Section>

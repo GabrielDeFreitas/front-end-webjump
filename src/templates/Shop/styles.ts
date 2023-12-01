@@ -15,6 +15,7 @@ export const Wrapper = styled.main`
 `
 export const Aside = styled.aside`
   padding: 1rem 4rem;
+  height: fit-content;
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #e2dedc;
   opacity: 1;
@@ -146,13 +147,54 @@ export const GridContainer = styled.div`
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1000px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 `
 
 export const GridItem = styled.div`
-  background-color: #f0f0f0;
-  padding: 20px;
+  margin-block: 1rem;
   text-align: center;
+`
+
+export const Card = styled.div`
+  text-align: center;
+`
+
+export const CardTitle = styled.h2`
+  letter-spacing: 0px;
+  color: #626262;
+  opacity: 1;
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-block: 0.25rem;
+`
+
+export const Price = styled.p`
+  letter-spacing: 0px;
+  color: #1e2b50;
+  opacity: 1;
+  font-size: 21px;
+  font-weight: 800;
+  margin-block: 0.25rem;
+`
+
+export const ButtonBuy = styled.button`
+  background: #00a8a9 0% 0% no-repeat padding-box;
+  border: 1px solid #00a8a9;
+  border-radius: 5px;
+  opacity: 1;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+  text-align: center;
+  font-size: 18px;
+  width: -webkit-fill-available;
+  padding: 0.75rem;
+  margin-block: 0.25rem;
+`
+export const ImageContainer = styled.div`
+  border: 1px solid #e2dedc;
+  opacity: 1;
 `
