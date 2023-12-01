@@ -6,16 +6,15 @@ export const Wrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr 5fr;
   gap: 20px;
-  padding: 20px;
+  //padding: 20px;
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `
 export const Aside = styled.aside`
-  border: 1px solid #ccc;
   padding: 1rem 4rem;
   background: #e2dedc 0% 0% no-repeat padding-box;
   opacity: 1;
@@ -40,10 +39,7 @@ export const Aside = styled.aside`
   }
 `
 
-export const Section = styled.section`
-  border: 1px solid #ccc;
-  padding: 20px;
-`
+export const Section = styled.section``
 
 export const Banner = styled.article`
   background: #acacac 0% 0% no-repeat padding-box;
