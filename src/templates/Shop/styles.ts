@@ -98,6 +98,10 @@ export const RedButton = styled.button`
   width: 48px;
   height: 24px;
   cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+    transition: color 0.3s ease;
+  }
 `
 
 export const OrangeButton = styled.button`
@@ -106,6 +110,10 @@ export const OrangeButton = styled.button`
   width: 48px;
   height: 24px;
   cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+    transition: color 0.3s ease;
+  }
 `
 
 export const GreenButton = styled.button`
@@ -114,6 +122,10 @@ export const GreenButton = styled.button`
   width: 48px;
   height: 24px;
   cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+    transition: color 0.3s ease;
+  }
 `
 
 export const PageContainer = styled.span`
@@ -193,6 +205,12 @@ export const ButtonBuy = styled.button`
   width: -webkit-fill-available;
   padding: 0.75rem;
   margin-block: 0.25rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+    transition: color 0.3s ease;
+  }
 `
 export const ImageContainer = styled.div`
   border: 1px solid #e2dedc;

@@ -11,7 +11,7 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
   return (
     <>
       <S.PageContainer>
-        Página inicial <S.PageInit>{categoryName}</S.PageInit>
+        Página inicial - <S.PageInit>{categoryName}</S.PageInit>
       </S.PageContainer>
       <S.Wrapper>
         <S.Aside>
