@@ -24,7 +24,7 @@ export const NavLinks = styled.div`
   }
 
   li {
-    margin-left: 20px;
+    margin-right: 7.25rem;
   }
 
   a {

@@ -1,4 +1,3 @@
-import Footer from 'components/Footer'
 import Header from 'components/Header'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
@@ -22,7 +21,6 @@ function App({ Component, pageProps }: AppProps) {
       <Header />
       <GlobalStyles />
       <Component {...pageProps} />
-      <Footer />
     </>
   )
 }
