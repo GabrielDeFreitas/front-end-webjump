@@ -9,6 +9,7 @@ export const Navbar = styled.nav`
   @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
+    background-color: #ffff;
   }
 `
 
@@ -17,6 +18,20 @@ export const Container = styled.div`
   width: 80%;
   padding-block: 0.25rem;
   margin-block: 1.25rem;
+
+  @media screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+  }
+`
+
+export const LogoNavbar = styled.div`
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
 `
 
 export const NavLinks = styled.div`
@@ -49,9 +64,10 @@ export const NavLinks = styled.div`
     text-decoration: underline;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 768px) {
     a {
       font-size: 14px;
+      color: #231f20;
     }
   }
 
@@ -81,12 +97,20 @@ export const MenuToggle = styled.div`
   div {
     width: 25px;
     height: 3px;
-    background-color: #fff;
     margin: 3px 0;
     transition: transform 0.3s ease-in-out;
+    background: #231f20;
   }
 
   @media screen and (max-width: 768px) {
     display: flex;
+  }
+`
+
+export const ShopIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: block;
   }
 `

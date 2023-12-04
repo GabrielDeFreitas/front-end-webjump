@@ -42,6 +42,10 @@ export const LogoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const InputsSearch = styled.div`
