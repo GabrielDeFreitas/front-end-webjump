@@ -1,5 +1,3 @@
-// pages/api/mock-api/V1/categories/[id].tsx
-
 import fs from 'fs'
 import path from 'path'
 import { NextApiRequest, NextApiResponse } from 'next'
