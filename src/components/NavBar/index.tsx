@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import * as S from './styles'
 import useListItems from 'hooks/useListItems'
+import Image from 'next/image'
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)

@@ -35,3 +35,33 @@ export const Container = styled.div`
     justify-content: center;
   }
 `
+
+export const LogoContainer = styled.div`
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const InputsSearch = styled.div`
+  input {
+    height: 4rem;
+    width: 320px;
+    border: 1px solid #959595;
+  }
+  button {
+    color: #ffffff;
+    font: 16px;
+    text-transform: uppercase;
+    background: #00a8a9;
+    border: 1px solid #00a8a9;
+    padding: 1.25rem;
+    cursor: pointer;
+  }
+
+  button:hover {
+    transition: color 0.3s ease;
+    opacity: 0.6;
+  }
+`
