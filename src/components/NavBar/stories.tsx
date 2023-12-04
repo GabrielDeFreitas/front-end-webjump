@@ -6,4 +6,15 @@ export default {
   component: NavBar
 } as Meta
 
-export const Default: Story = () => <NavBar />
+const Template: Story = () => <NavBar />
+
+jest.mock('hooks/useListItems', () => ({
+  __esModule: true,
+  default: () => [
+    { id: 1, name: 'Camisetas', path: 'camisetas' },
+    { id: 2, name: 'Calças', path: 'calcas' },
+    { id: 3, name: 'Calçados', path: 'calcados' }
+  ]
+}))
+
+export const Default = Template.bind({})

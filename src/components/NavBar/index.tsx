@@ -1,9 +1,12 @@
+// NavBar.tsx
 import Link from 'next/link'
 import { useState } from 'react'
 import * as S from './styles'
+import useListItems from 'hooks/useListItems'
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const listItems = useListItems()
 
   const handleToggle = () => {
     setIsOpen(!isOpen)
@@ -18,20 +21,13 @@ const NavBar = () => {
       </S.MenuToggle>
       <S.NavLinks isOpen={isOpen ? 1 : 0}>
         <ul>
+          {listItems.map((item) => (
+            <li key={item.id}>
+              <Link href={`/produto/${item.path}`}>{item.name}</Link>
+            </li>
+          ))}
           <li>
-            <Link href="/">PÁGINA INICIAL</Link>
-          </li>
-          <li>
-            <Link href="/produto/camisetas">CAMISETAS</Link>
-          </li>
-          <li>
-            <Link href="/produto/calcas">CALÇAS</Link>
-          </li>
-          <li>
-            <Link href="/produto/sapatos">SAPATOS</Link>
-          </li>
-          <li>
-            <Link href="/">CONTATO</Link>
+            <Link href="/contato">Contato</Link>
           </li>
         </ul>
       </S.NavLinks>
