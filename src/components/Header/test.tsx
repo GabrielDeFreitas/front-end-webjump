@@ -3,11 +3,15 @@ import { render, screen } from '@testing-library/react'
 import Header from '.'
 
 describe('<Header />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<Header />)
+  it('should render account links', () => {
+    render(<Header />)
 
-    expect(screen.getByRole('heading', { name: /Header/i })).toBeInTheDocument()
+    const accessAccountLink = screen.getByRole('link', {
+      name: /Acesse sua Conta/i
+    })
+    const signUpLink = screen.getByRole('link', { name: /Cadastre-se/i })
 
-    expect(container.firstChild).toMatchSnapshot()
+    expect(accessAccountLink).toBeInTheDocument()
+    expect(signUpLink).toBeInTheDocument()
   })
 })

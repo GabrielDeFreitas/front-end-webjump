@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import ShopTemplate from '../../templates/Shop'
 
-const allowedCategories = ['camisetas', 'sapatos', 'calcas']
+const allowedCategories = ['camisetas', 'calcas', 'calcados']
 
 const CategoryPage = () => {
   const router = useRouter()

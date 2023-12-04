@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import * as S from './styles'
+import useListItems from 'hooks/useListItems'
 
 interface LayoutTemplateProps {
   title: string
@@ -8,6 +9,8 @@ interface LayoutTemplateProps {
 }
 
 const LayoutTemplate: React.FC<LayoutTemplateProps> = ({ title, body }) => {
+  const listItems = useListItems()
+
   return (
     <>
       <S.Wrapper>
@@ -16,15 +19,11 @@ const LayoutTemplate: React.FC<LayoutTemplateProps> = ({ title, body }) => {
             <li>
               <Link href="/">Página Inicial</Link>
             </li>
-            <li>
-              <Link href="/produto/camisetas">Camisetas</Link>
-            </li>
-            <li>
-              <Link href="/produto/calcas">Calças</Link>
-            </li>
-            <li>
-              <Link href="/produto/sapatos">Sapatos</Link>
-            </li>
+            {listItems.map((item) => (
+              <li key={item.id}>
+                <Link href={`/produto/${item.path}`}>{item.name}</Link>
+              </li>
+            ))}
             <li>
               <Link href="/contato">Contato</Link>
             </li>

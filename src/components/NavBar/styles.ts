@@ -5,7 +5,6 @@ export const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   background-color: #cb0d1f;
-  padding: 1rem;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -13,10 +12,17 @@ export const Navbar = styled.nav`
   }
 `
 
-export const NavLinks = styled.div`
-  margin-block: 1rem;
+export const Container = styled.div`
+  margin: 0 auto;
+  width: 90%;
+  padding-block: 0.25rem;
+  margin-block: 1.25rem;
+`
 
+export const NavLinks = styled.div`
   ul {
+    display: inline-flex;
+    gap: 8rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -24,7 +30,6 @@ export const NavLinks = styled.div`
   }
 
   li {
-    margin-right: 7.25rem;
   }
 
   a {
@@ -35,12 +40,19 @@ export const NavLinks = styled.div`
     opacity: 1;
     text-decoration: none;
     font-weight: 700;
+    text-transform: uppercase;
   }
 
   a:hover {
     color: #adb5bd;
     transition: color 0.3s ease;
     text-decoration: underline;
+  }
+
+  @media screen and (max-width: 1000px) {
+    a {
+      font-size: 14px;
+    }
   }
 
   @media screen and (max-width: 768px) {

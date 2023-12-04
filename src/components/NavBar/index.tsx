@@ -14,23 +14,28 @@ const NavBar = () => {
 
   return (
     <S.Navbar>
-      <S.MenuToggle onClick={handleToggle}>
-        <div></div>
-        <div></div>
-        <div></div>
-      </S.MenuToggle>
-      <S.NavLinks isOpen={isOpen ? 1 : 0}>
-        <ul>
-          {listItems.map((item) => (
-            <li key={item.id}>
-              <Link href={`/produto/${item.path}`}>{item.name}</Link>
+      <S.Container>
+        <S.MenuToggle onClick={handleToggle}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </S.MenuToggle>
+        <S.NavLinks isOpen={isOpen ? 1 : 0}>
+          <ul>
+            <li>
+              <Link href="/contato">Página Inicial</Link>
             </li>
-          ))}
-          <li>
-            <Link href="/contato">Contato</Link>
-          </li>
-        </ul>
-      </S.NavLinks>
+            {listItems.map((item) => (
+              <li key={item.id}>
+                <Link href={`/produto/${item.path}`}>{item.name}</Link>
+              </li>
+            ))}
+            <li>
+              <Link href="/contato">Contato</Link>
+            </li>
+          </ul>
+        </S.NavLinks>
+      </S.Container>
     </S.Navbar>
   )
 }
