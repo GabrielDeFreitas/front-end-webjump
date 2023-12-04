@@ -49,6 +49,7 @@ export const InputsSearch = styled.div`
     height: 4rem;
     width: 320px;
     border: 1px solid #959595;
+    padding: 1rem;
   }
   button {
     color: #ffffff;
@@ -63,5 +64,38 @@ export const InputsSearch = styled.div`
   button:hover {
     transition: color 0.3s ease;
     opacity: 0.6;
+  }
+`
+
+export const Dropdown = styled.div`
+  background: #ffffff;
+  width: auto;
+  z-index: 999;
+  position: absolute;
+  height: 200px;
+  overflow-y: auto;
+
+  span {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  ul li {
+    list-style: none;
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  ul li:hover {
+    background: #9c9ea138;
+    transition: color 0.3s ease;
+  }
+
+  ul li div {
+    font-size: 16px;
+    font-weight: 600;
   }
 `

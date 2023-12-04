@@ -4,7 +4,7 @@ export const Wrapper = styled.main`
   background: #ffffff 0% 0% no-repeat padding-box;
   color: #000000;
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 2fr;
   gap: 20px;
   margin: 0 auto;
   width: 80%;
