@@ -1,17 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import * as S from './styles'
 import Image from 'next/image'
+import useListItems from '../../hooks/useListItems'
 
 interface ShopTemplateProps {
   categoryName: string
 }
 
 const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
+  const listItems = useListItems()
+  const [categoryDisplayName, setCategoryDisplayName] = useState('')
+
+  useEffect(() => {
+    const category = listItems.find((item) => item.path === categoryName)
+    if (category) {
+      setCategoryDisplayName(category.name)
+    }
+  }, [categoryName, listItems])
+
   return (
     <>
       <S.PageContainer>
-        Página inicial - <S.PageInit>{categoryName}</S.PageInit>
+        Página inicial - <S.PageInit>{categoryDisplayName}</S.PageInit>
       </S.PageContainer>
       <S.Wrapper>
         <S.Aside>
@@ -60,7 +71,7 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
         </S.Aside>
         <S.Section>
           <S.Article>
-            <S.Title>{categoryName}</S.Title>
+            <S.Title>{categoryDisplayName}</S.Title>
             <S.Hr />
             <S.GridContainer>
               <S.GridItem>

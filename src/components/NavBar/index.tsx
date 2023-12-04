@@ -23,7 +23,7 @@ const NavBar = () => {
         <S.NavLinks isOpen={isOpen ? 1 : 0}>
           <ul>
             <li>
-              <Link href="/contato">Página Inicial</Link>
+              <Link href="/">Página Inicial</Link>
             </li>
             {listItems.map((item) => (
               <li key={item.id}>
