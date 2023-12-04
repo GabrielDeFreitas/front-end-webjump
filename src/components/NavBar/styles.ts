@@ -48,7 +48,7 @@ export const NavLinks = styled.div`
   }
 
   a {
-    font-size: 16px;
+    font-size: 15px;
     text-align: center;
     letter-spacing: 0px;
     color: #ffffff;

@@ -4,6 +4,7 @@ import useListItems from '../../hooks/useListItems'
 import useCategoryItems from '../../hooks/useCategoryItems'
 import Image from 'next/image'
 import Link from 'next/link'
+import Orderby from 'components/Orderby'
 
 interface ShopTemplateProps {
   categoryName: string
@@ -11,6 +12,13 @@ interface ShopTemplateProps {
 
 interface PathToIdMap {
   [key: string]: number
+}
+
+interface Item {
+  id: number
+  name: string
+  image: string
+  price: number
 }
 
 const pathToIdMap: PathToIdMap = {
@@ -22,9 +30,12 @@ const pathToIdMap: PathToIdMap = {
 const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
   const categories = useListItems()
   const categoryId = pathToIdMap[categoryName as keyof PathToIdMap] || 0
-  const listItems = useCategoryItems(categoryId ? categoryId.toString() : '')
+  const categoryItems = useCategoryItems(
+    categoryId ? categoryId.toString() : ''
+  )
 
   const [categoryDisplayName, setCategoryDisplayName] = useState('')
+  const [listItems, setListItems] = useState<Item[]>([])
 
   useEffect(() => {
     const category = categories.find((item) => item.path === categoryName)
@@ -32,6 +43,22 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
       setCategoryDisplayName(category.name)
     }
   }, [categoryName, categories])
+
+  useEffect(() => {
+    setListItems(categoryItems)
+  }, [categoryItems])
+
+  const handleOrderBy = (criteria: string) => {
+    const sortedItems = [...listItems]
+
+    if (criteria === 'name') {
+      sortedItems.sort((a, b) => a.name.localeCompare(b.name))
+    } else if (criteria === 'price') {
+      sortedItems.sort((a, b) => a.price - b.price)
+    }
+
+    setListItems(sortedItems)
+  }
 
   return (
     <>
@@ -110,6 +137,7 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
         <S.Section>
           <S.Article>
             <S.Title>{categoryDisplayName}</S.Title>
+            <Orderby handleOrderBy={handleOrderBy} />
             <S.Hr />
             <S.GridContainer>
               {listItems.map((item) => (
@@ -123,10 +151,11 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
                         alt={item.name}
                       />
                     </S.ImageContainer>
-                    <S.CardTitle>{item.name}</S.CardTitle>
-                    <S.Price>R${item.price.toFixed(2)}</S.Price>
-                    <S.ButtonBuy>Comprar</S.ButtonBuy>
-                    <span>{item.path}</span>
+                    <S.GridButtons>
+                      <S.CardTitle>{item.name}</S.CardTitle>
+                      <S.Price>R${item.price.toFixed(2)}</S.Price>
+                      <S.ButtonBuy>Comprar</S.ButtonBuy>
+                    </S.GridButtons>
                   </S.Card>
                 </S.GridItem>
               ))}

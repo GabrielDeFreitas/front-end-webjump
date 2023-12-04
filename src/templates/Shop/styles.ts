@@ -292,3 +292,8 @@ export const ImageContainer = styled.div`
   border: 1px solid #e2dedc;
   opacity: 1;
 `
+
+export const GridButtons = styled.div`
+  display: grid;
+  gap: 0.75rem;
+`
