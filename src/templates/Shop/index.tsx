@@ -57,13 +57,28 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
           <S.AsideSubTitle>CORES</S.AsideSubTitle>
           <S.AsideColor>
             <li>
-              <S.RedButton></S.RedButton>
-            </li>
-            <li>
               <S.OrangeButton></S.OrangeButton>
             </li>
             <li>
               <S.GreenButton></S.GreenButton>
+            </li>
+            <li>
+              <S.BlackButton></S.BlackButton>
+            </li>
+            <li>
+              <S.YellowButton></S.YellowButton>
+            </li>
+            <li>
+              <S.GrayButton></S.GrayButton>
+            </li>
+            <li>
+              <S.BlueButton></S.BlueButton>
+            </li>
+            <li>
+              <S.PinkButton></S.PinkButton>
+            </li>
+            <li>
+              <S.BeigeButton></S.BeigeButton>
             </li>
           </S.AsideColor>
 
@@ -80,6 +95,15 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
             </li>
             <li>
               <Link href="/">Social</Link>
+            </li>
+          </S.AsideList>
+          <S.AsideSubTitle>Gênero</S.AsideSubTitle>
+          <S.AsideList>
+            <li>
+              <Link href="/">Masculino</Link>
+            </li>
+            <li>
+              <Link href="/">Feminino</Link>
             </li>
           </S.AsideList>
         </S.Aside>

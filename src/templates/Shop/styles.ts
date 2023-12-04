@@ -19,6 +19,8 @@ export const Aside = styled.aside`
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #e2dedc;
   opacity: 1;
+  display: grid;
+  gap: 1rem;
 
   a {
     text-align: left;
@@ -88,12 +90,86 @@ export const AsideList = styled.ul`
 export const AsideColor = styled.ul`
   list-style: none;
   list-style: none;
-  display: flex;
+  display: grid;
   gap: 0.25rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  width: 10%;
 `
 
 export const RedButton = styled.button`
   background: #cb0d1f 0% 0% no-repeat padding-box;
+  border: none;
+  width: 48px;
+  height: 24px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+    transition: color 0.3s ease;
+  }
+`
+
+export const BlackButton = styled.button`
+  background: black;
+  border: none;
+  width: 48px;
+  height: 24px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+    transition: color 0.3s ease;
+  }
+`
+
+export const YellowButton = styled.button`
+  background: #ffb703;
+  border: none;
+  width: 48px;
+  height: 24px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+    transition: color 0.3s ease;
+  }
+`
+
+export const GrayButton = styled.button`
+  background: #8d99ae;
+  border: none;
+  width: 48px;
+  height: 24px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+    transition: color 0.3s ease;
+  }
+`
+
+export const BlueButton = styled.button`
+  background: #0077b6;
+  border: none;
+  width: 48px;
+  height: 24px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+    transition: color 0.3s ease;
+  }
+`
+
+export const PinkButton = styled.button`
+  background: #ff006e;
+  border: none;
+  width: 48px;
+  height: 24px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+    transition: color 0.3s ease;
+  }
+`
+
+export const BeigeButton = styled.button`
+  background: #ddb892;
   border: none;
   width: 48px;
   height: 24px;
