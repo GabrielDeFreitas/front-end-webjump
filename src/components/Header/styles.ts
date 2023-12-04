@@ -24,7 +24,7 @@ export const Span = styled.span`
 
 export const Container = styled.div`
   margin: 0 auto;
-  width: 90%;
+  width: 80%;
   padding-block: 0.75rem;
   display: flex;
   justify-content: end;

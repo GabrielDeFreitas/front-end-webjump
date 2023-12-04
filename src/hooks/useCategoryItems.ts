@@ -5,6 +5,7 @@ interface ListItem {
   name: string
   image: string
   price: number
+  path: string
 }
 
 const useCategoryItems = (categoryId: string): ListItem[] => {

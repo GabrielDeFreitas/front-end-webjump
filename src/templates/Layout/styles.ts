@@ -6,9 +6,8 @@ export const Wrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr 5fr;
   gap: 20px;
-  //padding: 20px;
   margin: 0 auto;
-  width: 90%;
+  width: 80%;
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -37,6 +36,12 @@ export const Aside = styled.aside`
       font-size: 16px;
     }
   }
+
+  a:hover {
+    transition: transform 0.3s ease-in-out;
+    text-decoration: underline;
+    font-weight: 700;
+  }
 `
 
 export const Section = styled.section``
@@ -45,6 +50,10 @@ export const Banner = styled.article`
   background: #acacac 0% 0% no-repeat padding-box;
   opacity: 1;
   padding: 16rem;
+
+  @media screen and (max-width: 1000px) {
+    padding: 6.75rem;
+  }
 `
 
 export const Article = styled.article``

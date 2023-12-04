@@ -93,15 +93,16 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
                   <S.Card>
                     <S.ImageContainer>
                       <Image
-                        src="/media/shoes-8.jpg"
+                        src={item.image}
                         width={300}
                         height={300}
-                        alt="calças"
+                        alt={item.name}
                       />
                     </S.ImageContainer>
                     <S.CardTitle>{item.name}</S.CardTitle>
                     <S.Price>R${item.price.toFixed(2)}</S.Price>
                     <S.ButtonBuy>Comprar</S.ButtonBuy>
+                    <span>{item.path}</span>
                   </S.Card>
                 </S.GridItem>
               ))}

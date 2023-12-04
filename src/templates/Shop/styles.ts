@@ -4,10 +4,10 @@ export const Wrapper = styled.main`
   background: #ffffff 0% 0% no-repeat padding-box;
   color: #000000;
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 2fr;
   gap: 20px;
   margin: 0 auto;
-  width: 90%;
+  width: 80%;
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -130,7 +130,7 @@ export const GreenButton = styled.button`
 
 export const PageContainer = styled.span`
   margin: 0 auto;
-  width: 90%;
+  width: 80%;
   display: block;
   margin-block: 2rem;
   font-size: 14px;

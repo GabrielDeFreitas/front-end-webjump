@@ -14,7 +14,7 @@ export const Navbar = styled.nav`
 
 export const Container = styled.div`
   margin: 0 auto;
-  width: 90%;
+  width: 80%;
   padding-block: 0.25rem;
   margin-block: 1.25rem;
 `
@@ -64,6 +64,7 @@ export const NavLinks = styled.div`
     ul {
       flex-direction: column;
       align-items: flex-start;
+      gap: 1rem;
     }
 
     li {
