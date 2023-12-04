@@ -1,23 +1,37 @@
 import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
 import * as S from './styles'
-import Image from 'next/image'
 import useListItems from '../../hooks/useListItems'
+import useCategoryItems from '../../hooks/useCategoryItems'
+import Image from 'next/image'
+import Link from 'next/link'
 
 interface ShopTemplateProps {
   categoryName: string
 }
 
+interface PathToIdMap {
+  [key: string]: number
+}
+
+const pathToIdMap: PathToIdMap = {
+  camisetas: 1,
+  calcas: 2,
+  calcados: 3
+}
+
 const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
-  const listItems = useListItems()
+  const categories = useListItems()
+  const categoryId = pathToIdMap[categoryName as keyof PathToIdMap] || 0
+  const listItems = useCategoryItems(categoryId ? categoryId.toString() : '')
+
   const [categoryDisplayName, setCategoryDisplayName] = useState('')
 
   useEffect(() => {
-    const category = listItems.find((item) => item.path === categoryName)
+    const category = categories.find((item) => item.path === categoryName)
     if (category) {
       setCategoryDisplayName(category.name)
     }
-  }, [categoryName, listItems])
+  }, [categoryName, categories])
 
   return (
     <>
@@ -74,37 +88,23 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
             <S.Title>{categoryDisplayName}</S.Title>
             <S.Hr />
             <S.GridContainer>
-              <S.GridItem>
-                <S.Card>
-                  <S.ImageContainer>
-                    <Image
-                      src="/media/shoes-8.jpg"
-                      width={300}
-                      height={300}
-                      alt="calças"
-                    />
-                  </S.ImageContainer>
-                  <S.CardTitle>TÊNIS ADIDAS</S.CardTitle>
-                  <S.Price>R$299,90</S.Price>
-                  <S.ButtonBuy>Comprar</S.ButtonBuy>
-                </S.Card>
-              </S.GridItem>
-
-              <S.GridItem>
-                <S.Card>
-                  <S.ImageContainer>
-                    <Image
-                      src="/media/shoes-8.jpg"
-                      width={300}
-                      height={300}
-                      alt="calças"
-                    />
-                  </S.ImageContainer>
-                  <S.CardTitle>TÊNIS ADIDAS</S.CardTitle>
-                  <S.Price>R$299,90</S.Price>
-                  <S.ButtonBuy>Comprar</S.ButtonBuy>
-                </S.Card>
-              </S.GridItem>
+              {listItems.map((item) => (
+                <S.GridItem key={item.id}>
+                  <S.Card>
+                    <S.ImageContainer>
+                      <Image
+                        src="/media/shoes-8.jpg"
+                        width={300}
+                        height={300}
+                        alt="calças"
+                      />
+                    </S.ImageContainer>
+                    <S.CardTitle>{item.name}</S.CardTitle>
+                    <S.Price>R${item.price.toFixed(2)}</S.Price>
+                    <S.ButtonBuy>Comprar</S.ButtonBuy>
+                  </S.Card>
+                </S.GridItem>
+              ))}
             </S.GridContainer>
           </S.Article>
         </S.Section>

@@ -1,21 +1,20 @@
 import { useEffect, useState } from 'react'
 
-interface Item {
+interface ListItem {
   id: number
-  path: string
   name: string
   image: string
   price: number
 }
 
-const useCategoryItems = (categoryName: string): Item[] => {
-  const [items, setItems] = useState<Item[]>([])
+const useCategoryItems = (categoryId: string): ListItem[] => {
+  const [items, setItems] = useState<ListItem[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `/api/mock-api/V1/categories/${categoryName}`
+          `/api/mock-api/V1/categories/${categoryId}`
         )
         if (!response.ok) {
           throw new Error('Failed to fetch data')
@@ -28,7 +27,7 @@ const useCategoryItems = (categoryName: string): Item[] => {
     }
 
     fetchData()
-  }, [categoryName])
+  }, [categoryId])
 
   return items
 }
