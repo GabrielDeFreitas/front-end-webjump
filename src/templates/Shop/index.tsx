@@ -89,6 +89,21 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
     setFilteredItems(filtered)
   }
 
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 8
+
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem)
+
+  const nextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1)
+  }
+
+  const prevPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1)
+  }
+
   return (
     <>
       <S.PageContainer>
@@ -182,10 +197,10 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
             <Orderby handleOrderBy={handleOrderBy} />
             <S.Hr />
             <S.GridContainer>
-              {filteredItems.length === 0 ? (
+              {currentItems.length === 0 ? (
                 <NoResults />
               ) : (
-                filteredItems.map((item) => (
+                currentItems.map((item) => (
                   <S.GridItem key={item.id}>
                     <S.Card>
                       <S.ImageContainer>
@@ -206,6 +221,22 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
                 ))
               )}
             </S.GridContainer>
+            {filteredItems.length > itemsPerPage && (
+              <S.PaginationContainer>
+                <S.PaginationButton
+                  disabled={currentPage === 1}
+                  onClick={prevPage}
+                >
+                  {'<'}
+                </S.PaginationButton>
+                <S.PaginationButton
+                  disabled={indexOfLastItem >= filteredItems.length}
+                  onClick={nextPage}
+                >
+                  {'>'}
+                </S.PaginationButton>
+              </S.PaginationContainer>
+            )}
           </S.Article>
         </S.Section>
       </S.Wrapper>
