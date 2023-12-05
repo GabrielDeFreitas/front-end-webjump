@@ -1,6 +1,12 @@
 ## Front-end WebJump
 Deploy - https://front-end-webjump.vercel.app/
 
+## Google lighthouse
+
+<img src="public/img/lighthouse1.PNG" alt="A developer facing a screen with code.">
+</br>
+<img src="public/img/lighthouse2.PNG" alt="A developer facing a screen with code.">
+
 ## What is inside?
 
 This project uses lot of stuff as:
