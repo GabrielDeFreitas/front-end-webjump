@@ -1,13 +1,17 @@
 import { render, screen } from '@testing-library/react'
-
 import NoResults from '.'
 
 describe('<NoResults />', () => {
-  it('should render the heading', () => {
+  it('should render the "Pesquisa não encontrada" title', () => {
+    render(<NoResults />)
+
+    const titleElement = screen.getByText(/Pesquisa não encontrada/i)
+
+    expect(titleElement).toBeInTheDocument()
+  })
+
+  it('should match snapshot', () => {
     const { container } = render(<NoResults />)
-
-    expect(screen.getByRole('heading', { name: /NoResults/i })).toBeInTheDocument()
-
     expect(container.firstChild).toMatchSnapshot()
   })
 })

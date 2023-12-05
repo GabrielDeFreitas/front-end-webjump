@@ -20,7 +20,7 @@ interface Item {
   name: string
   image: string
   price: number
-  filter?: { gender: string }[]
+  filter?: { gender: string; color?: string }[]
 }
 
 const pathToIdMap: PathToIdMap = {
@@ -78,6 +78,17 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
     }
   }
 
+  const [colorFilter, setColorFilter] = useState<string>('')
+
+  const filterByColor = (color: string) => {
+    const filtered = listItems.filter((item) => {
+      return item.filter && item.filter.some((f) => f.color === color)
+    })
+
+    setColorFilter(color)
+    setFilteredItems(filtered)
+  }
+
   return (
     <>
       <S.PageContainer>
@@ -102,19 +113,34 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
           <S.AsideSubTitle>CORES</S.AsideSubTitle>
           <S.AsideColor>
             <li>
-              <S.YellowButton></S.YellowButton>
+              <S.BlackButton
+                onClick={() => filterByColor('Preto')}
+              ></S.BlackButton>
             </li>
             <li>
-              <S.GrayButton></S.GrayButton>
+              <S.YellowButton
+                onClick={() => filterByColor('Amarela')}
+              ></S.YellowButton>
             </li>
             <li>
-              <S.BlueButton></S.BlueButton>
+              <S.GrayButton
+                onClick={() => filterByColor('Cinza')}
+              ></S.GrayButton>
             </li>
             <li>
-              <S.PinkButton></S.PinkButton>
+              <S.BlueButton
+                onClick={() => filterByColor('Azul')}
+              ></S.BlueButton>
             </li>
             <li>
-              <S.BeigeButton></S.BeigeButton>
+              <S.PinkButton
+                onClick={() => filterByColor('Rosa')}
+              ></S.PinkButton>
+            </li>
+            <li>
+              <S.BeigeButton
+                onClick={() => filterByColor('Bege')}
+              ></S.BeigeButton>
             </li>
           </S.AsideColor>
 

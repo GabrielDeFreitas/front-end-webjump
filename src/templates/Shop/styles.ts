@@ -121,6 +121,10 @@ export const AsideColor = styled.ul`
   gap: 0.25rem;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   width: 10%;
+
+  li {
+    margin-block: 0;
+  }
 `
 
 export const RedButton = styled.button`
