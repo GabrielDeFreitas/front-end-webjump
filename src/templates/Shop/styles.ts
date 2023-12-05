@@ -299,6 +299,18 @@ export const Price = styled.p`
   margin-block: 0.25rem;
 `
 
+export const SpecialPrice = styled.p`
+  color: #808185;
+  text-decoration: line-through;
+  font-size: 15px;
+`
+export const PriceContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  align-items: center;
+`
+
 export const ButtonBuy = styled.button`
   background: #00a8a9 0% 0% no-repeat padding-box;
   border: 1px solid #00a8a9;

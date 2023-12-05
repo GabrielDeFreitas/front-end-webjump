@@ -20,6 +20,7 @@ interface Item {
   name: string
   image: string
   price: number
+  specialPrice: number
   filter?: { gender: string; color?: string }[]
 }
 
@@ -213,7 +214,12 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
                       </S.ImageContainer>
                       <S.GridButtons>
                         <S.CardTitle>{item.name}</S.CardTitle>
-                        <S.Price>R${item.price.toFixed(2)}</S.Price>
+                        <S.PriceContainer>
+                          <S.SpecialPrice>
+                            {item.specialPrice ? `R$${item.specialPrice}` : ''}
+                          </S.SpecialPrice>
+                          <S.Price>R${item.price.toFixed(2)}</S.Price>
+                        </S.PriceContainer>
                         <S.ButtonBuy>Comprar</S.ButtonBuy>
                       </S.GridButtons>
                     </S.Card>
