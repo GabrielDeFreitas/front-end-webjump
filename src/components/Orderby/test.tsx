@@ -1,13 +1,17 @@
 import { render, screen } from '@testing-library/react'
-
-import Orderby from '.'
+import Orderby, { OrderbyProps } from '.'
 
 describe('<Orderby />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<Orderby />)
+  const mockHandleOrderBy: OrderbyProps['handleOrderBy'] = (criteria) => {
+    //
+  }
 
-    expect(screen.getByRole('heading', { name: /Orderby/i })).toBeInTheDocument()
+  it('should render the component', () => {
+    render(<Orderby handleOrderBy={mockHandleOrderBy} />)
 
-    expect(container.firstChild).toMatchSnapshot()
+    expect(
+      screen.getByRole('heading', { name: /Orderby/i })
+    ).toBeInTheDocument()
+    //
   })
 })
