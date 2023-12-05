@@ -87,6 +87,33 @@ export const AsideList = styled.ul`
     transition: color 0.3s ease;
   }
 `
+
+export const AsideListGender = styled.ul`
+  display: flex;
+  gap: 1rem;
+
+  li {
+    list-style: none;
+  }
+
+  button {
+    font-size: 14px;
+    background: #ef476f;
+    color: white;
+    border: 1px solid #ef476f;
+    border-radius: 0.5rem;
+    opacity: 1;
+    font-weight: 300;
+    padding: 0.75rem;
+    cursor: pointer;
+  }
+
+  button:hover {
+    opacity: 0.6;
+    transition: color 0.3s ease;
+  }
+`
+
 export const AsideColor = styled.ul`
   list-style: none;
   list-style: none;

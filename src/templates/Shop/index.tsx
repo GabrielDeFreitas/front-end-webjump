@@ -5,6 +5,7 @@ import useCategoryItems from '../../hooks/useCategoryItems'
 import Image from 'next/image'
 import Link from 'next/link'
 import Orderby from 'components/Orderby'
+import NoResults from 'components/NoResults'
 
 interface ShopTemplateProps {
   categoryName: string
@@ -19,6 +20,7 @@ interface Item {
   name: string
   image: string
   price: number
+  filter?: { gender: string }[]
 }
 
 const pathToIdMap: PathToIdMap = {
@@ -36,6 +38,8 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
 
   const [categoryDisplayName, setCategoryDisplayName] = useState('')
   const [listItems, setListItems] = useState<Item[]>([])
+  const [filteredItems, setFilteredItems] = useState<Item[]>([])
+  const [genderFilter, setGenderFilter] = useState<string>('')
 
   useEffect(() => {
     const category = categories.find((item) => item.path === categoryName)
@@ -46,10 +50,11 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
 
   useEffect(() => {
     setListItems(categoryItems)
+    setFilteredItems(categoryItems)
   }, [categoryItems])
 
   const handleOrderBy = (criteria: string) => {
-    const sortedItems = [...listItems]
+    const sortedItems = [...filteredItems]
 
     if (criteria === 'name') {
       sortedItems.sort((a, b) => a.name.localeCompare(b.name))
@@ -57,7 +62,20 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
       sortedItems.sort((a, b) => a.price - b.price)
     }
 
-    setListItems(sortedItems)
+    setFilteredItems(sortedItems)
+  }
+
+  const filterByGender = (gender: string) => {
+    if (gender === 'Masculina' || gender === 'Feminina') {
+      const filtered = listItems.filter((item) => {
+        return item.filter && item.filter.some((f) => f.gender === gender)
+      })
+      setGenderFilter(gender)
+      setFilteredItems(filtered)
+    } else {
+      setGenderFilter('')
+      setFilteredItems(listItems)
+    }
   }
 
   return (
@@ -83,15 +101,6 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
 
           <S.AsideSubTitle>CORES</S.AsideSubTitle>
           <S.AsideColor>
-            <li>
-              <S.OrangeButton></S.OrangeButton>
-            </li>
-            <li>
-              <S.GreenButton></S.GreenButton>
-            </li>
-            <li>
-              <S.BlackButton></S.BlackButton>
-            </li>
             <li>
               <S.YellowButton></S.YellowButton>
             </li>
@@ -125,14 +134,21 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
             </li>
           </S.AsideList>
           <S.AsideSubTitle>Gênero</S.AsideSubTitle>
-          <S.AsideList>
+          <S.AsideListGender>
             <li>
-              <Link href="/">Masculino</Link>
+              <button onClick={() => filterByGender('Todos')}>Todos</button>
             </li>
             <li>
-              <Link href="/">Feminino</Link>
+              <button onClick={() => filterByGender('Masculina')}>
+                Masculino
+              </button>
             </li>
-          </S.AsideList>
+            <li>
+              <button onClick={() => filterByGender('Feminina')}>
+                Feminino
+              </button>
+            </li>
+          </S.AsideListGender>
         </S.Aside>
         <S.Section>
           <S.Article>
@@ -140,25 +156,29 @@ const ShopTemplate: React.FC<ShopTemplateProps> = ({ categoryName }) => {
             <Orderby handleOrderBy={handleOrderBy} />
             <S.Hr />
             <S.GridContainer>
-              {listItems.map((item) => (
-                <S.GridItem key={item.id}>
-                  <S.Card>
-                    <S.ImageContainer>
-                      <Image
-                        src={item.image}
-                        width={300}
-                        height={300}
-                        alt={item.name}
-                      />
-                    </S.ImageContainer>
-                    <S.GridButtons>
-                      <S.CardTitle>{item.name}</S.CardTitle>
-                      <S.Price>R${item.price.toFixed(2)}</S.Price>
-                      <S.ButtonBuy>Comprar</S.ButtonBuy>
-                    </S.GridButtons>
-                  </S.Card>
-                </S.GridItem>
-              ))}
+              {filteredItems.length === 0 ? (
+                <NoResults />
+              ) : (
+                filteredItems.map((item) => (
+                  <S.GridItem key={item.id}>
+                    <S.Card>
+                      <S.ImageContainer>
+                        <Image
+                          src={item.image}
+                          width={300}
+                          height={300}
+                          alt={item.name}
+                        />
+                      </S.ImageContainer>
+                      <S.GridButtons>
+                        <S.CardTitle>{item.name}</S.CardTitle>
+                        <S.Price>R${item.price.toFixed(2)}</S.Price>
+                        <S.ButtonBuy>Comprar</S.ButtonBuy>
+                      </S.GridButtons>
+                    </S.Card>
+                  </S.GridItem>
+                ))
+              )}
             </S.GridContainer>
           </S.Article>
         </S.Section>
