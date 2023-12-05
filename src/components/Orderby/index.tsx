@@ -1,7 +1,7 @@
 // Orderby.tsx
 import * as S from './styles'
 
-interface OrderbyProps {
+export interface OrderbyProps {
   handleOrderBy: (criteria: string) => void
 }
 
