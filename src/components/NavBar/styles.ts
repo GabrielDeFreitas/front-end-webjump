@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+interface NavLinksProps {
+  isOpen: number
+}
+
 export const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -34,7 +38,7 @@ export const LogoNavbar = styled.div`
   }
 `
 
-export const NavLinks = styled.div`
+export const NavLinks = styled.div<NavLinksProps>`
   ul {
     display: inline-flex;
     gap: 8rem;
